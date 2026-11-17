@@ -1,11 +1,14 @@
 {
-    "name": "org",
+    "name": "Hiflex",
     "source": "sdk",
     "main": "lib.js",
-    "widgets": ["org.MyWidget"],
-    "resources":
-    {
-        "images": ["corvina-widget1.png"],
-        "icon": ["corvina-widget1.png"]
+    "widgets": ["Hiflex.BarCard", "Hiflex.GaugeCard", "Hiflex.TrendCard","Hiflex.ProgressBar","Hiflex.NumericLabel"],
+    "resources": {
+        "images": [
+            "barcard.svg", "gaugecard.svg", "trendcard.svg", "progressbar.svg","numericlabel.svg"
+        ],
+        "icon": [
+            "barcard.svg", "gaugecard.svg", "trendcard.svg", "progressbar.svg","numericlabel.svg"
+        ]
     }
 }
