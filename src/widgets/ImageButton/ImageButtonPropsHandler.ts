@@ -1,12 +1,21 @@
 import { IPropertyHandler, BaseGraphicPropsHandler } from "corvina";
 
-export default class ImageButtonPropsHandler extends BaseGraphicPropsHandler {  
-  value: IPropertyHandler;
+export default class ImageButtonPropsHandler extends BaseGraphicPropsHandler {
   images: IPropertyHandler;
+  value: IPropertyHandler;
   fit: IPropertyHandler;
 
   createCustomPropsHandler() {
     super.createCustomPropsHandler();
+
+    this.images = {
+      layer: "attributes",
+      type: "object",
+      propControl: "ImageButtonImagesPropControl", // custom control, registered in main.ts
+      attachTag: false,
+      display: "Images",
+      description: "the image of the button when the value is 0 (off) and when it is not 0 (on)"
+    };
 
     this.value = {
       layer: "attributes",
@@ -17,15 +26,6 @@ export default class ImageButtonPropsHandler extends BaseGraphicPropsHandler {
       attachTagPermission: "readwrite",
       display: "Value",
       description: "0 shows the off image, any other number the on image"
-    };
-
-    this.images = {
-      layer: "attributes",
-      type: "object",
-      propControl: "ImageButtonImagesPropControl", // custom control, registered in main.ts
-      attachTag: false,
-      display: "Images",
-      description: "the image of the button when the value is 0 (off) and when it is not 0 (on)"
     };
 
     this.fit = {
@@ -40,6 +40,34 @@ export default class ImageButtonPropsHandler extends BaseGraphicPropsHandler {
       ],
       display: "Image fit",
       description: "how the image fills the button: whole image (contain), cropped (cover) or stretched (fill)"
+    };
+
+      this.usePermissions = {
+      layer: "Permissions",
+      type: "boolean",
+      propControl: "InputPropControl",
+      readOnly: false,
+      attachTag: false,
+      display: "Enable user permissions",
+      description: "limit the widget to the user groups below"
+    };
+
+    this.visibleForGroups = {
+      layer: "Permissions",
+      type: "object",
+      propControl: "GroupsListPropControl",
+      attachTag: false,
+      display: "Visible for groups",
+      description: "the user groups that see the widget"
+    };
+
+    this.enabledForGroups = {
+      layer: "Permissions",
+      type: "object",
+      propControl: "GroupsListPropControl",
+      attachTag: false,
+      display: "Enabled for groups",
+      description: "the user groups that can use the widget"
     };
   }
 

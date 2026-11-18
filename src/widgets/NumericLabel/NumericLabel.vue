@@ -5,7 +5,7 @@
       <div v-if="error" class="numericlabel-error" :style="inputStyle">{{ error }}</div>
       <input ref="input" class="numericlabel-input"
             :style="[valueStyle, inputStyle]"
-            type="number" step="any" v-model="draft"
+            type="number" step="any" v-model="draft" :disabled="!canWrite()"
             @input="error = ''" @keydown.enter.prevent="commit" @keydown.esc.prevent="cancel"
             @blur="blurCommit" />
     </div>
@@ -19,6 +19,7 @@
 
 <script>
 import { useCorvinaI18n } from "corvina";
+
 const i18n = useCorvinaI18n({
   "en-US": { "invalidInput": "Invalid input", "minimum": "Minimum", "maximum": "Maximum" },
   "it-IT": { "invalidInput": "Input non valido", "minimum": "Minimo", "maximum": "Massimo" },

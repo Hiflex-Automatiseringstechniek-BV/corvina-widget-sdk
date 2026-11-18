@@ -11,10 +11,11 @@
 <script>
 import { useCorvinaI18n } from "corvina";
 import { toBoolean } from "./defs";
+import { defaultImage } from "./defaultImages";
 
 const i18n = useCorvinaI18n({
-  "en-US": { "noImages": "No image: choose the images in the properties panel", "loading": "Loading..." },
-  "it-IT": { "noImages": "Nessuna immagine: sceglile nel pannello delle proprietà", "loading": "Caricamento..." }
+  "en-US": { "loading": "Loading..." },
+  "it-IT": { "loading": "Caricamento..." }
 });
 
 export default {
@@ -31,17 +32,16 @@ export default {
     images() {
       return this.wgt.getPropertyValue( "images" ) || {};
     },
-    // The image of the state; with only one image chosen it is shown in both states
-    current() {
-      const images = this.images;
-      const wanted = this.pressed ? images.on : images.off;
-      return wanted || images.off || images.on || null;
+    // Each state has its own image: the one chosen by the user, or the default one
+    custom() {
+      return this.pressed ? this.images.on : this.images.off;
     },
     source() {
-      return this.current ? this.wgt.imageSources[ this.current.asset ] : "";
+      if ( this.custom ) return this.wgt.imageSources[ this.custom.asset ] || "";
+      return defaultImage( this.pressed ? "on" : "off" );
     },
     placeholder() {
-      return this.current ? i18n.t( "loading" ) : i18n.t( "noImages" );
+      return i18n.t( "loading" );
     },
     fit() {
       return this.wgt.getPropertyValue( "fit" ) || "contain";

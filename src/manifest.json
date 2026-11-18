@@ -5,10 +5,22 @@
     "widgets": ["Hiflex.BarCard", "Hiflex.GaugeCard", "Hiflex.TrendCard","Hiflex.ProgressBar","Hiflex.NumericLabel","Hiflex.ImageButton"],
     "resources": {
         "images": [
-            "barcard.svg", "gaugecard.svg", "trendcard.svg", "progressbar.svg","numericlabel.svg","imagebutton.svg"
+            "barcard.svg", 
+            "gaugecard.svg", 
+            "trendcard.svg", 
+            "progressbar.svg",
+            "numericlabel.svg",
+            "imagebutton.svg",
+            "toggle_off_cross.svg",
+            "toggle_on_check.svg"
         ],
         "icon": [
-            "barcard.svg", "gaugecard.svg", "trendcard.svg", "progressbar.svg","numericlabel.svg","imagebutton.svg"
+            "barcard.svg", 
+            "gaugecard.svg", 
+            "trendcard.svg", 
+            "progressbar.svg",
+            "numericlabel.svg",
+            "imagebutton.svg"
         ]
     }
 }

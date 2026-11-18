@@ -172,5 +172,33 @@ export default class NumericLabelPropsHandler extends BaseGraphicPropsHandler {
         { value: "bottom", display: "Bottom" }
       ]
     };
+    
+    this.usePermissions = {
+      layer: "Permissions",
+      type: "boolean",
+      propControl: "InputPropControl",
+      readOnly: false,
+      attachTag: false,
+      display: "Enable user permissions",
+      description: "limit the widget to the user groups below"
+    };
+
+    this.visibleForGroups = {
+      layer: "Permissions",
+      type: "object",
+      propControl: "GroupsListPropControl",
+      attachTag: false,
+      display: "Visible for groups",
+      description: "the user groups that see the widget"
+    };
+
+    this.enabledForGroups = {
+      layer: "Permissions",
+      type: "object",
+      propControl: "GroupsListPropControl",
+      attachTag: false,
+      display: "Enabled for groups",
+      description: "the user groups that can use the widget"
+    };
   }
 }

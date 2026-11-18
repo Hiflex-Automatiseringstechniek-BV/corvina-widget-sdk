@@ -12,7 +12,7 @@
                 <div class="v-select__selections">
                   <img v-if="thumbnail( slot )" class="ib-thumb" :src="thumbnail( slot )" :alt="slot">
                   <span v-else-if="images[ slot ]" class="ib-thumb"></span>
-                  <div class="v-select__selection v-select__selection--comma">{{ images[ slot ] ? images[ slot ].title : "" }}</div>
+                  <div class="v-select__selection v-select__selection--comma">{{ images[ slot ] ? images[ slot ].title : i18n.t( "default" ) }}</div>
                   <input spellcheck="false" readonly="readonly" type="text" autocomplete="off" tabindex="-1">
                 </div>
                 <div class="v-input__append-inner ib-actions">
@@ -35,16 +35,17 @@
 <script>
 import { projectStore, useCorvinaI18n } from "corvina";
 import { normalizeImages } from "./defs";
+import { defaultImage } from "./defaultImages";
 import { IMAGE_TYPES, MAX_IMAGE_SIZE, isAssetStorageEnabled } from "./imageAssets";
 
 const i18n = useCorvinaI18n({
   "en-US": {
-    "off": "Off image", "on": "On image", "choose": "Choose", "replace": "Replace", "remove": "Remove", "uploading": "Uploading...",
+    "off": "Off image", "on": "On image", "default": "Default image", "choose": "Choose", "replace": "Replace", "remove": "Remove", "uploading": "Uploading...",
     "storageDisabled": "The asset storage is not enabled for this organization: images cannot be uploaded.",
     "rejected": "Not added: use PNG, JPEG, GIF, WebP or SVG up to {size} MB", "failed": "Upload failed"
   },
   "it-IT": {
-    "off": "Immagine spenta", "on": "Immagine accesa", "choose": "Scegli", "replace": "Sostituisci", "remove": "Rimuovi", "uploading": "Caricamento...",
+    "off": "Immagine spenta", "on": "Immagine accesa", "default": "Immagine predefinita", "choose": "Scegli", "replace": "Sostituisci", "remove": "Rimuovi", "uploading": "Caricamento...",
     "storageDisabled": "Lo storage degli asset non è abilitato per questa organizzazione: non è possibile caricare immagini.",
     "rejected": "Non aggiunta: usa PNG, JPEG, GIF, WebP o SVG fino a {size} MB", "failed": "Caricamento non riuscito"
   }
@@ -83,7 +84,7 @@ export default {
   methods: {
     thumbnail( slot ) {
       const image = this.images[ slot ];
-      return image ? this.sources[ image.asset ] : "";
+      return image ? this.sources[ image.asset ] : defaultImage( slot );
     },
     choose( slot ) {
       this.current = slot;
