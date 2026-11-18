@@ -2,13 +2,13 @@
     "name": "Hiflex",
     "source": "sdk",
     "main": "lib.js",
-    "widgets": ["Hiflex.BarCard", "Hiflex.GaugeCard", "Hiflex.TrendCard","Hiflex.ProgressBar","Hiflex.NumericLabel"],
+    "widgets": ["Hiflex.BarCard", "Hiflex.GaugeCard", "Hiflex.TrendCard","Hiflex.ProgressBar","Hiflex.NumericLabel","Hiflex.ImageButton"],
     "resources": {
         "images": [
-            "barcard.svg", "gaugecard.svg", "trendcard.svg", "progressbar.svg","numericlabel.svg"
+            "barcard.svg", "gaugecard.svg", "trendcard.svg", "progressbar.svg","numericlabel.svg","imagebutton.svg"
         ],
         "icon": [
-            "barcard.svg", "gaugecard.svg", "trendcard.svg", "progressbar.svg","numericlabel.svg"
+            "barcard.svg", "gaugecard.svg", "trendcard.svg", "progressbar.svg","numericlabel.svg","imagebutton.svg"
         ]
     }
 }

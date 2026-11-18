@@ -1375,6 +1375,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^8.1.2":
+  version: 8.1.2
+  resolution: "@babel/runtime@npm:8.1.2"
+  checksum: 10c0/346f5e03c74273164040b296236c4c268c5342c7d308c2b961e2e9dc3e4c369a2ddba22703030e98783f2c4ce7add728e376f2e0eb119adb6e9bf08c86730d79
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:7.8.6":
   version: 7.8.6
   resolution: "@babel/template@npm:7.8.6"
@@ -1499,6 +1506,7 @@ __metadata:
     "@babel/plugin-syntax-dynamic-import": "npm:^7.8.3"
     "@babel/plugin-transform-runtime": "npm:^7.15.0"
     "@babel/preset-env": "npm:^7.15.0"
+    "@babel/runtime": "npm:^8.1.2"
     "@casl/ability": "npm:^2.5.1"
     "@types/jest": "npm:^23.3.13"
     "@types/mocha": "npm:^5.2.5"

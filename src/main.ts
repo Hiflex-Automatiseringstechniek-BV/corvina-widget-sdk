@@ -1,8 +1,6 @@
 declare var adjustPath;
-import { registerWidget } from "corvina";
+import { registerWidget, registerPropControl } from "corvina";
 import manifest from "./manifest.json";
-
-// Add widgets with: yarn corvina-sdk create widget <tech> <Name>
 
 // BarCard: Vue 2 component (classic SDK widget) (created by corvina-sdk create widget vue)
 import BarCard from "./widgets/BarCard/BarCard";
@@ -16,7 +14,10 @@ registerWidget({
   gfx: barCardGallery.getDefaultConfiguration,
   props: barCardGallery.getPropsHandler(),
   icon: adjustPath( require( "./resources/images/barcard.svg" ) ),
-  category: "Hiflex"
+  category: "Hiflex",
+  displayName: "Bar Card",
+  // What the widget shows and what its properties are for: the Corvina AI assistant reads it
+  description: "A Card widget with a horizontal progressbar, a label for description and a numeric value with units"
 }, manifest);
 
 // Gauge: Vue 2 component (classic SDK widget) (created by corvina-sdk create widget vue)
@@ -77,4 +78,38 @@ registerWidget({
   props: numericLabelGallery.getPropsHandler(),
                icon: adjustPath( require( "./resources/images/numericlabel.svg" ) ),
                category: "Hiflex"
+}, manifest);
+
+// ImageGallery: Vue 2 component (classic SDK widget) (created by corvina-sdk create widget vue)
+/*import ImageGallery from "./widgets/ImageGallery/ImageGallery";
+import ImageGalleryVue from "./widgets/ImageGallery/ImageGallery.vue";
+import ImageGalleryImagesPropControl from "./widgets/ImageGallery/ImageGalleryImagesPropControl.vue";
+import { imageGalleryGallery } from "./widgets/ImageGallery/ImageGalleryGallery";
+import { widgetType as ImageGalleryType } from "./widgets/ImageGallery/defs";
+registerPropControl( ImageGalleryImagesPropControl );
+registerWidget({
+  type: ImageGalleryType,  // The value is Hiflex.ImageGallery
+  class: ImageGallery,
+  component: ImageGalleryVue,
+  gfx: imageGalleryGallery.getDefaultConfiguration,
+  props: imageGalleryGallery.getPropsHandler(),
+               icon: adjustPath( require( "./resources/images/corvina-widget1.png" ) ),
+               category: "Hiflex"
+}, manifest);*/
+
+import ImageButton from "./widgets/ImageButton/ImageButton";
+import ImageButtonVue from "./widgets/ImageButton/ImageButton.vue";
+import ImageButtonImagesPropControl from "./widgets/ImageButton/ImageButtonImagesPropControl.vue";
+import { imageButtonGallery } from "./widgets/ImageButton/ImageButtonGallery";
+import { widgetType as ImageButtonType } from "./widgets/ImageButton/defs";
+
+registerPropControl( ImageButtonImagesPropControl );
+registerWidget({
+  type: ImageButtonType,  // The value is Hiflex.ImageButton
+  class: ImageButton,
+  component: ImageButtonVue,
+  gfx: imageButtonGallery.getDefaultConfiguration,
+  props: imageButtonGallery.getPropsHandler(),
+  icon: adjustPath( require( "./resources/images/imagebutton.svg" ) ),
+  category: "Hiflex"
 }, manifest);
